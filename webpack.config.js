@@ -6,7 +6,7 @@ const postcssPresetEnv = require('postcss-preset-env');
 const devMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['./src/index.js', './src/assets/styles/main.scss'],
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'index_bundle.js'
@@ -36,7 +36,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
@@ -45,13 +45,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './public/index.html',
             filename: './index.html',
-            favicon: './src/assets/images/favicon.ico',
+            favicon: './public/favicon.ico',
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
+            filename: './dist/style.min.css',
         })
     ],
     devServer: {
