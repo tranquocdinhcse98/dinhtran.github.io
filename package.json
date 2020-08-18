@@ -1,10 +1,13 @@
 {
+  "homepage": "https://tranquocdinhcse98.github.io/myportfolio",
   "name": "myportfolio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "webpack --mode production"
   },
   "author": "DinhTran",
@@ -32,6 +35,7 @@
     "css-loader": "^3.6.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.20.6",
+    "gh-pages": "^3.1.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.14.1",
