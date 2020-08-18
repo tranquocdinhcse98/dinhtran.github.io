@@ -8,7 +8,7 @@ const devMode = process.env.NODE_ENV === 'development';
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.resolve(__dirname, 'build'),
         filename: 'index_bundle.js'
     },
     module: {
